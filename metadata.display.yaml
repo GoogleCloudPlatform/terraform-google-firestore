@@ -36,18 +36,40 @@ spec:
         concurrency_mode:
           name: concurrency_mode
           title: Concurrency Mode
+          enumValueLabels:
+            - label: OPTIMISTIC
+              value: OPTIMISTIC
+            - label: PESSIMISTIC
+              value: PESSIMISTIC
+            - label: OPTIMISTIC_WITH_ENTITY_GROUPS
+              value: OPTIMISTIC_WITH_ENTITY_GROUPS
         database_id:
           name: database_id
           title: Database Id
         database_type:
           name: database_type
           title: Database Type
+          enumValueLabels:
+            - label: FIRESTORE_NATIVE
+              value: FIRESTORE_NATIVE
+            - label: DATASTORE_MODE
+              value: DATASTORE_MODE
         delete_protection_state:
           name: delete_protection_state
           title: Delete Protection State
+          enumValueLabels:
+            - label: DELETE_PROTECTION_ENABLED
+              value: DELETE_PROTECTION_ENABLED
+            - label: DELETE_PROTECTION_DISABLED
+              value: DELETE_PROTECTION_DISABLED
         deletion_policy:
           name: deletion_policy
           title: Deletion Policy
+          enumValueLabels:
+            - label: DELETE
+              value: DELETE
+            - label: ABANDON
+              value: ABANDON
         field_configuration:
           name: field_configuration
           title: Field Configuration
@@ -60,6 +82,11 @@ spec:
         point_in_time_recovery_enablement:
           name: point_in_time_recovery_enablement
           title: Point In Time Recovery Enablement
+          enumValueLabels:
+            - label: POINT_IN_TIME_RECOVERY_ENABLED
+              value: POINT_IN_TIME_RECOVERY_ENABLED
+            - label: POINT_IN_TIME_RECOVERY_DISABLED
+              value: POINT_IN_TIME_RECOVERY_DISABLED
         project_id:
           name: project_id
           title: Project Id
