@@ -46,6 +46,8 @@ spec:
         database_id:
           name: database_id
           title: Database Id
+          regexValidation: ^[a-z][a-z0-9-]{2,61}[a-z0-9]$
+          validation: Use lowercase letters, numbers, and hyphens. Start with a letter and end with letter/number. Must be between 4 and 63 characters.
         database_type:
           name: database_type
           title: Database Type
