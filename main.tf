@@ -22,6 +22,7 @@ resource "google_firestore_database" "firestore_database" {
   concurrency_mode                  = var.concurrency_mode
   delete_protection_state           = var.delete_protection_state
   point_in_time_recovery_enablement = var.point_in_time_recovery_enablement
+  database_edition                  = var.database_edition
   deletion_policy                   = var.deletion_policy
 
   dynamic "cmek_config" {
@@ -60,6 +61,8 @@ resource "google_firestore_index" "firestore_index" {
   collection  = each.value.collection
   query_scope = each.value.query_scope
   api_scope   = each.value.api_scope
+  density     = each.value.density
+  multikey    = each.value.multikey
 
   dynamic "fields" {
     for_each = each.value.fields

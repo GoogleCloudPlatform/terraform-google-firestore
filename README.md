@@ -77,8 +77,9 @@ Functional examples are included in the
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | backup\_schedule\_configuration | Backup schedule configuration for the Firestore Database. | <pre>object({<br>    weekly_recurrence = optional(object({<br>      day       = string<br>      retention = string<br>    }))<br><br>    daily_recurrence = optional(object({<br>      retention = string<br>    }))<br>  })</pre> | `null` | no |
-| composite\_index\_configuration | Composite index configuration for the Firestore Database. | <pre>list(object({<br>    index_id    = string<br>    collection  = string<br>    query_scope = optional(string, "COLLECTION")<br>    api_scope   = optional(string, "ANY_API")<br>    fields = list(object({<br>      field_path   = string<br>      order        = optional(string)<br>      array_config = optional(string)<br>      vector_config = optional(object({<br>        dimension = number<br>      }))<br>    }))<br>  }))</pre> | `[]` | no |
-| concurrency\_mode | Concurrency control mode to be used for the Firestore Database. | `string` | `"OPTIMISTIC"` | no |
+| composite\_index\_configuration | Composite index configuration for the Firestore Database. | <pre>list(object({<br>    index_id    = string<br>    collection  = string<br>    query_scope = optional(string, "COLLECTION")<br>    api_scope   = optional(string, "ANY_API")<br>    density     = optional(string)<br>    multikey    = optional(bool)<br>    fields = list(object({<br>      field_path   = string<br>      order        = optional(string)<br>      array_config = optional(string)<br>      vector_config = optional(object({<br>        dimension = number<br>      }))<br>    }))<br>  }))</pre> | `[]` | no |
+| concurrency\_mode | Concurrency control mode to be used for the Firestore Database. | `string` | `"PESSIMISTIC"` | no |
+| database\_edition | The database edition used to create the Firestore database. | `string` | `"STANDARD"` | no |
 | database\_id | Unique identifier of the Firestore Database. | `string` | n/a | yes |
 | database\_type | Database type used to created the Firestore Database. | `string` | `"FIRESTORE_NATIVE"` | no |
 | delete\_protection\_state | Determines whether deletion protection is enabled or not for the Firestore Database. | `string` | `"DELETE_PROTECTION_ENABLED"` | no |

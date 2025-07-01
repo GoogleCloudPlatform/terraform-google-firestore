@@ -39,6 +39,10 @@ spec:
         location: examples/example_with_backup
       - name: example_with_composite_indexes
         location: examples/example_with_composite_indexes
+      - name: example_with_enterprise_edition
+        location: examples/example_with_enterprise_edition
+      - name: example_with_enterprise_edition_and_indexes
+        location: examples/example_with_enterprise_edition_and_indexes
       - name: example_with_fields
         location: examples/example_with_fields
       - name: simple_example
@@ -61,10 +65,14 @@ spec:
         description: Database type used to created the Firestore Database.
         varType: string
         defaultValue: FIRESTORE_NATIVE
+      - name: database_edition
+        description: The database edition used to create the Firestore database.
+        varType: string
+        defaultValue: STANDARD
       - name: concurrency_mode
         description: Concurrency control mode to be used for the Firestore Database.
         varType: string
-        defaultValue: OPTIMISTIC
+        defaultValue: PESSIMISTIC
       - name: delete_protection_state
         description: Determines whether deletion protection is enabled or not for the Firestore Database.
         varType: string
@@ -101,6 +109,8 @@ spec:
               collection  = string
               query_scope = optional(string, "COLLECTION")
               api_scope   = optional(string, "ANY_API")
+              density     = optional(string)
+              multikey    = optional(bool)
               fields = list(object({
                 field_path   = string
                 order        = optional(string)

@@ -40,10 +40,21 @@ variable "database_type" {
   }
 }
 
+variable "database_edition" {
+  description = "The database edition used to create the Firestore database."
+  type        = string
+  default     = "STANDARD"
+
+  validation {
+    condition     = var.database_edition == "STANDARD" || var.database_edition == "ENTERPRISE"
+    error_message = "Invalid database edition. Database edition can be either STANDARD (or) ENTERPRISE."
+  }
+}
+
 variable "concurrency_mode" {
   description = "Concurrency control mode to be used for the Firestore Database."
   type        = string
-  default     = "OPTIMISTIC"
+  default     = "PESSIMISTIC"
 
   validation {
     condition     = var.concurrency_mode == "OPTIMISTIC" || var.concurrency_mode == "PESSIMISTIC" || var.concurrency_mode == "OPTIMISTIC_WITH_ENTITY_GROUPS"
@@ -107,6 +118,8 @@ variable "composite_index_configuration" {
     collection  = string
     query_scope = optional(string, "COLLECTION")
     api_scope   = optional(string, "ANY_API")
+    density     = optional(string)
+    multikey    = optional(bool)
     fields = list(object({
       field_path   = string
       order        = optional(string)
@@ -129,6 +142,20 @@ variable "composite_index_configuration" {
 
   validation {
     condition = alltrue(flatten([
+      for item in var.composite_index_configuration : (item.density == null || item.density == "SPARSE_ALL" || item.density == "SPARSE_ANY" || item.density == "DENSE")
+    ]))
+    error_message = "Invalid density. Density must be either SPARSE_ALL (or) SPARSE_ANY (or) DENSE."
+  }
+
+  validation {
+    condition = alltrue(flatten([
+      for item in var.composite_index_configuration : (var.database_edition == "STANDARD" || (var.database_edition == "ENTERPRISE" && (item.density == "SPARSE_ANY" || item.density == "DENSE")))
+    ]))
+    error_message = "Firestore enterprise edition only supports SPARSE_ANY and DENSE index densities."
+  }
+
+  validation {
+    condition = alltrue(flatten([
       for item in var.composite_index_configuration : (item.query_scope == "COLLECTION" || item.query_scope == "COLLECTION_GROUP" || item.query_scope == "COLLECTION_RECURSIVE")
     ]))
     error_message = "Invalid query scope. Query scope can be either COLLECTION (or) COLLECTION_GROUP (or) COLLECTION_RECURSIVE."
@@ -136,9 +163,23 @@ variable "composite_index_configuration" {
 
   validation {
     condition = alltrue(flatten([
-      for item in var.composite_index_configuration : (item.api_scope == "ANY_API" || item.api_scope == "DATASTORE_MODE_API")
+      for item in var.composite_index_configuration : (item.api_scope == "ANY_API" || item.api_scope == "DATASTORE_MODE_API" || item.api_scope == "MONGODB_COMPATIBLE_API")
     ]))
-    error_message = "Invalid API scope. API scope can be either ANY_API (or) DATASTORE_MODE_API."
+    error_message = "Invalid API scope. API scope can be one of ANY_API, DATASTORE_MODE_API or MONGODB_COMPATIBLE_API."
+  }
+
+  validation {
+    condition = alltrue(flatten([
+      for item in var.composite_index_configuration : (var.database_edition == "STANDARD" || (var.database_edition == "ENTERPRISE" && item.api_scope == "MONGODB_COMPATIBLE_API"))
+    ]))
+    error_message = "Firestore enterprise edition only supports MONGODB_COMPATIBLE_API api scope."
+  }
+
+  validation {
+    condition = alltrue(flatten([
+      for item in var.composite_index_configuration : (var.database_edition == "STANDARD" || (var.database_edition == "ENTERPRISE" && item.query_scope == "COLLECTION_GROUP"))
+    ]))
+    error_message = "Only COLLECTION_GROUP query scope is allowed in enteprise edition."
   }
 }
 

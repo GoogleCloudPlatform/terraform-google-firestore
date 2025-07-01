@@ -43,6 +43,9 @@ spec:
               value: PESSIMISTIC
             - label: OPTIMISTIC_WITH_ENTITY_GROUPS
               value: OPTIMISTIC_WITH_ENTITY_GROUPS
+        database_edition:
+          name: database_edition
+          title: Database Edition
         database_id:
           name: database_id
           title: Database Id
