@@ -8,6 +8,17 @@ and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 This changelog is generated automatically based on [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## [0.2.0](https://github.com/GoogleCloudPlatform/terraform-google-firestore/compare/v0.1.0...v0.2.0) (2025-07-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* Added supported for Firestore enterprise edition ([#13](https://github.com/GoogleCloudPlatform/terraform-google-firestore/issues/13))
+
+### Features
+
+* Added supported for Firestore enterprise edition ([#13](https://github.com/GoogleCloudPlatform/terraform-google-firestore/issues/13)) ([63935dd](https://github.com/GoogleCloudPlatform/terraform-google-firestore/commit/63935dd9664360dd8fd5f5af062f8a16654ed6ac))
+
 ## 0.1.0 (2025-06-25)
 
 
