@@ -8,6 +8,13 @@ and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 This changelog is generated automatically based on [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## [0.2.1](https://github.com/GoogleCloudPlatform/terraform-google-firestore/compare/v0.2.0...v0.2.1) (2025-08-01)
+
+
+### Bug Fixes
+
+* fixing default value for deletion policy (https://github.com/GoogleCloudPlatform/terraform-google-firestore/pull/16) ([beb93cf](https://github.com/GoogleCloudPlatform/terraform-google-firestore/commit/beb93cf0f47b4239fb4eee6e09f84666d4b488f7))
+
 ## [0.2.0](https://github.com/GoogleCloudPlatform/terraform-google-firestore/compare/v0.1.0...v0.2.0) (2025-07-29)
 
 
