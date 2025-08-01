@@ -83,7 +83,7 @@ Functional examples are included in the
 | database\_id | Unique identifier of the Firestore Database. | `string` | n/a | yes |
 | database\_type | Database type used to created the Firestore Database. | `string` | `"FIRESTORE_NATIVE"` | no |
 | delete\_protection\_state | Determines whether deletion protection is enabled or not for the Firestore Database. | `string` | `"DELETE_PROTECTION_ENABLED"` | no |
-| deletion\_policy | Deletion policy enforced when Firestore Database is destroyed via Terraform. | `string` | `"DELETED"` | no |
+| deletion\_policy | Deletion policy enforced when Firestore Database is destroyed via Terraform. | `string` | `"DELETE"` | no |
 | field\_configuration | Single field configurations for the Firestore Database. | <pre>list(object({<br>    collection                   = string<br>    field                        = string<br>    ttl_enabled                  = optional(bool, false)<br>    ascending_index_query_scope  = optional(set(string), [])<br>    descending_index_query_scope = optional(set(string), [])<br>    array_index_query_scope      = optional(set(string), [])<br>  }))</pre> | `[]` | no |
 | kms\_key\_name | The resource ID of the Customer-managed Encryption Key (CMEK) using which the created database will be encrypted. | `string` | `null` | no |
 | location | The location in which the Firesotre Database is created. | `string` | n/a | yes |

@@ -87,7 +87,7 @@ spec:
       - name: deletion_policy
         description: Deletion policy enforced when Firestore Database is destroyed via Terraform.
         varType: string
-        defaultValue: DELETED
+        defaultValue: DELETE
       - name: backup_schedule_configuration
         description: Backup schedule configuration for the Firestore Database.
         varType: |-

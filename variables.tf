@@ -93,7 +93,7 @@ variable "point_in_time_recovery_enablement" {
 variable "deletion_policy" {
   description = "Deletion policy enforced when Firestore Database is destroyed via Terraform."
   type        = string
-  default     = "DELETED"
+  default     = "DELETE"
 }
 
 variable "backup_schedule_configuration" {
