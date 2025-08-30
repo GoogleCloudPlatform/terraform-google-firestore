@@ -8,6 +8,13 @@ and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 This changelog is generated automatically based on [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## [0.2.2](https://github.com/GoogleCloudPlatform/terraform-google-firestore/compare/v0.2.1...v0.2.2) (2025-08-30)
+
+
+### Bug Fixes
+
+* remove unsupported validations ([#21](https://github.com/GoogleCloudPlatform/terraform-google-firestore/issues/21)) ([543836b](https://github.com/GoogleCloudPlatform/terraform-google-firestore/commit/543836b48688482f8f65379fbd336d7ee7de71ff))
+
 ## [0.2.1](https://github.com/GoogleCloudPlatform/terraform-google-firestore/compare/v0.2.0...v0.2.1) (2025-08-01)
 
 
