@@ -149,13 +149,6 @@ variable "composite_index_configuration" {
 
   validation {
     condition = alltrue(flatten([
-      for item in var.composite_index_configuration : (var.database_edition == "STANDARD" || (var.database_edition == "ENTERPRISE" && (item.density == "SPARSE_ANY" || item.density == "DENSE")))
-    ]))
-    error_message = "Firestore enterprise edition only supports SPARSE_ANY and DENSE index densities."
-  }
-
-  validation {
-    condition = alltrue(flatten([
       for item in var.composite_index_configuration : (item.query_scope == "COLLECTION" || item.query_scope == "COLLECTION_GROUP" || item.query_scope == "COLLECTION_RECURSIVE")
     ]))
     error_message = "Invalid query scope. Query scope can be either COLLECTION (or) COLLECTION_GROUP (or) COLLECTION_RECURSIVE."
@@ -166,20 +159,6 @@ variable "composite_index_configuration" {
       for item in var.composite_index_configuration : (item.api_scope == "ANY_API" || item.api_scope == "DATASTORE_MODE_API" || item.api_scope == "MONGODB_COMPATIBLE_API")
     ]))
     error_message = "Invalid API scope. API scope can be one of ANY_API, DATASTORE_MODE_API or MONGODB_COMPATIBLE_API."
-  }
-
-  validation {
-    condition = alltrue(flatten([
-      for item in var.composite_index_configuration : (var.database_edition == "STANDARD" || (var.database_edition == "ENTERPRISE" && item.api_scope == "MONGODB_COMPATIBLE_API"))
-    ]))
-    error_message = "Firestore enterprise edition only supports MONGODB_COMPATIBLE_API api scope."
-  }
-
-  validation {
-    condition = alltrue(flatten([
-      for item in var.composite_index_configuration : (var.database_edition == "STANDARD" || (var.database_edition == "ENTERPRISE" && item.query_scope == "COLLECTION_GROUP"))
-    ]))
-    error_message = "Only COLLECTION_GROUP query scope is allowed in enteprise edition."
   }
 }
 
