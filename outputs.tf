@@ -14,8 +14,13 @@
  * limitations under the License.
  */
 
-output "database_id" {
+output "database_resource_id" {
   description = "The database id of the firestore database."
+  value       = var.database_id
+}
+
+output "database_id" {
+  description = "The full database resource name of the firestore database, in the format projects/{{project_id}}/databases/{{name}}"
   value       = google_firestore_database.firestore_database.id
 }
 

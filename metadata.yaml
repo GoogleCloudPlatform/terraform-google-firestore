@@ -1,4 +1,4 @@
-# Copyright 2025 Google LLC
+# Copyright 2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -143,8 +143,10 @@ spec:
         description: The unique backup schedule identifier across all locations and databases for the given project.
         type: string
       - name: database_id
-        description: The database id of the firestore database.
+        description: The full database resource name of the firestore database, in the format projects/{{project_id}}/databases/{{name}}
         type: string
+      - name: database_resource_id
+        description: The database id of the firestore database.
       - name: field_ids
         description: List of firestore fields created for the database.
         type:

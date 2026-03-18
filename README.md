@@ -96,7 +96,8 @@ Functional examples are included in the
 |------|-------------|
 | composite\_index\_ids | List of composite indices for the firestore database. |
 | daily\_backup\_schedule\_id | The unique backup schedule identifier across all locations and databases for the given project. |
-| database\_id | The database id of the firestore database. |
+| database\_id | The full database resource name of the firestore database, in the format projects/{{project\_id}}/databases/{{name}} |
+| database\_resource\_id | The database id of the firestore database. |
 | field\_ids | List of firestore fields created for the database. |
 | weekly\_backup\_schedule\_id | The unique backup schedule identifier across all locations and databases for the given project. |
 
