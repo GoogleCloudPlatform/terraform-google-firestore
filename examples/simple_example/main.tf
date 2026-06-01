@@ -16,7 +16,7 @@
 
 module "firestore" {
   source                            = "GoogleCloudPlatform/firestore/google"
-  version                           = "0.0.1"
+  version                           = ">= 0.0.1"
   project_id                        = var.project_id
   database_id                       = "terraform-blueprint-test"
   location                          = "us-central1"
