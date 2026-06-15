@@ -119,3 +119,22 @@ resource "google_firestore_field" "firestore_field" {
     }
   }
 }
+
+resource "google_service_account" "firestore_sa" {
+  account_id   = "fs-${var.database_id}"
+  display_name = "Service Account for ${var.database_id}"
+  project      = var.project_id
+}
+
+resource "google_project_iam_member" "database_user" {
+  project = var.project_id
+  role    = "roles/datastore.user"
+  member  = "serviceAccount:${google_service_account.firestore_sa.email}"
+
+  condition {
+    title       = "allow_specific_database"
+    description = "Grants access only to the ${var.database_id} database"
+    # This expression ensures the role only applies to the specific database resource
+    expression  = "resource.name == 'projects/${var.project_id}/databases/${var.database_id}'"
+  }
+}
