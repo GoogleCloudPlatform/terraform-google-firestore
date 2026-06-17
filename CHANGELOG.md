@@ -8,6 +8,18 @@ and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 This changelog is generated automatically based on [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## [0.3.0](https://github.com/GoogleCloudPlatform/terraform-google-firestore/compare/v0.2.2...v0.3.0) (2026-06-17)
+
+
+### Features
+
+* Update Google provider version constraint to &lt; 8 for Firestore ([#29](https://github.com/GoogleCloudPlatform/terraform-google-firestore/issues/29)) ([3c0de9f](https://github.com/GoogleCloudPlatform/terraform-google-firestore/commit/3c0de9ff44ad90b7acf35c3c2afab234013c9365))
+
+
+### Bug Fixes
+
+* export short database id as new output ([#26](https://github.com/GoogleCloudPlatform/terraform-google-firestore/issues/26)) ([b529ec5](https://github.com/GoogleCloudPlatform/terraform-google-firestore/commit/b529ec5491eb387f65df0b1d6a20a0d5d5b76022))
+
 ## [0.2.2](https://github.com/GoogleCloudPlatform/terraform-google-firestore/compare/v0.2.1...v0.2.2) (2025-08-30)
 
 
