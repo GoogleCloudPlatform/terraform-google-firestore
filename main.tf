@@ -121,7 +121,7 @@ resource "google_firestore_field" "firestore_field" {
 }
 
 resource "google_service_account" "firestore_sa" {
-  account_id   = "fs-${var.database_id}"
+  account_id   = "fs-${replace(replace(var.database_id, "(", ""), ")", "")}"
   display_name = "Service Account for ${var.database_id}"
   project      = var.project_id
 }
