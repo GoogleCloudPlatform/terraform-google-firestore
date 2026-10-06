@@ -80,6 +80,7 @@ spec:
       - name: kms_key_name
         description: The resource ID of the Customer-managed Encryption Key (CMEK) using which the created database will be encrypted.
         varType: string
+        defaultValue: null
       - name: point_in_time_recovery_enablement
         description: Determines whether point-in-time recovery is enabled for the Firestore Database.
         varType: string
@@ -101,6 +102,7 @@ spec:
                 retention = string
               }))
             })
+        defaultValue: null
       - name: composite_index_configuration
         description: Composite index configuration for the Firestore Database.
         varType: |-
