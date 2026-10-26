@@ -202,3 +202,8 @@ variable "field_configuration" {
   }
 }
 
+variable "tags" {
+description = "A map of resource manager tags to attach to the Firestore Database. Tag keys and values must be in the resource manager tag format, i.e. keys in the format tagKeys/{tag_key_id} and values in the format tagValues/{tag_value_id}. This field is ignored when empty and is immutable: changing it after creation will force replacement of the database."
+  type = map(string)
+  default = {}
+}

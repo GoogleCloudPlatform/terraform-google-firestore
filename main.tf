@@ -24,6 +24,7 @@ resource "google_firestore_database" "firestore_database" {
   point_in_time_recovery_enablement = var.point_in_time_recovery_enablement
   database_edition                  = var.database_edition
   deletion_policy                   = var.deletion_policy
+  tags                              = var.tags
 
   dynamic "cmek_config" {
     for_each = var.kms_key_name != null ? [var.kms_key_name] : []

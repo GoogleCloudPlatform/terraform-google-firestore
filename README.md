@@ -89,6 +89,7 @@ Functional examples are included in the
 | location | The location in which the Firesotre Database is created. | `string` | n/a | yes |
 | point\_in\_time\_recovery\_enablement | Determines whether point-in-time recovery is enabled for the Firestore Database. | `string` | `"POINT_IN_TIME_RECOVERY_ENABLED"` | no |
 | project\_id | The ID of the project in which the Firestore resources are created. | `string` | n/a | yes |
+| tags | A map of resource manager tags to attach to the Firestore Database. Tag keys and values must be in the resource manager tag format, i.e. keys in the format `tagKeys/{tag_key_id}` and values in the format `tagValues/{tag_value_id}`. This field is ignored when empty and is immutable: changing it after creation will force replacement of the database. | `map(string)` | `{}` | no |
 
 ## Outputs
 
